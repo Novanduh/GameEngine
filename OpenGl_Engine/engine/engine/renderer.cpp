@@ -1,4 +1,4 @@
-//From https://www.opengl-tutorial.org/download/
+//Base code from https://www.opengl-tutorial.org/download/
 // Include standard headers
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,6 +29,7 @@ GLuint programID;
 GLuint MatrixID;
 GLuint Texture;
 GLuint TextureID;
+
 
 
 void initRenderer() {
@@ -88,6 +89,23 @@ void initRenderer() {
 	programID = LoadShaders("VertexShader.vertexshader", "FragmentShader.fragmentshader");
 }
 
+void cameraControl() {
+	// Compute the MVP matrix from keyboard and mouse input
+	computeMatricesFromInputs();
+	glm::mat4 ProjectionMatrix = getProjectionMatrix();
+	glm::mat4 ViewMatrix = getViewMatrix();
+	glm::mat4 ModelMatrix = glm::mat4(1.0);
+	glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
+
+	// Send our transformation to the currently bound shader, 
+	// in the "MVP" uniform
+	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+}
+
+bool closeWindow() {
+	return !(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && glfwWindowShouldClose(window) == 0);
+}
+
 void render(const char* path, const char* imagepath) {
 	// Get a handle for our "MVP" uniform
 	MatrixID = glGetUniformLocation(programID, "MVP");
@@ -125,16 +143,7 @@ void render(const char* path, const char* imagepath) {
 		// Use our shader
 		glUseProgram(programID);
 
-		// Compute the MVP matrix from keyboard and mouse input
-		computeMatricesFromInputs();
-		glm::mat4 ProjectionMatrix = getProjectionMatrix();
-		glm::mat4 ViewMatrix = getViewMatrix();
-		glm::mat4 ModelMatrix = glm::mat4(1.0);
-		glm::mat4 MVP = ProjectionMatrix * ViewMatrix * ModelMatrix;
-
-		// Send our transformation to the currently bound shader, 
-		// in the "MVP" uniform
-		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+		cameraControl();
 
 		// Bind our texture in Texture Unit 0
 		glActiveTexture(GL_TEXTURE0);
@@ -177,8 +186,7 @@ void render(const char* path, const char* imagepath) {
 		glfwPollEvents();
 
 	} // Check if the ESC key was pressed or the window was closed
-	while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
-		glfwWindowShouldClose(window) == 0);
+	while (!closeWindow());
 }
 
 void cleanUp() {
@@ -196,7 +204,6 @@ void cleanUp() {
 void main(void)
 {
 	initRenderer();
-
 
 	render("viking_room.obj", "viking_room.DDS");
 
