@@ -63,8 +63,8 @@
     <Image Include="viking_room.dds" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="TextureFragmentShader.fragmentshader" />
-    <None Include="TransformVertexShader.vertexshader" />
+    <None Include="FragmentShader.fragmentshader" />
+    <None Include="VertexShader.vertexshader" />
   </ItemGroup>
   <ItemGroup>
     <Object Include="cube.obj" />
@@ -93,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="common\vboindexer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

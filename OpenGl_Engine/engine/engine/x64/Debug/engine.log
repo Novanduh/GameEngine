@@ -1,20 +1,4 @@
-﻿  Collision.cpp
-  controls.cpp
-  objloader.cpp
-  quaternion_utils.cpp
-  shader.cpp
-  tangentspace.cpp
-  text2D.cpp
-  texture.cpp
-D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\common\text2D.cpp(42,22): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
-D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\common\text2D.cpp(106,45): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-  vboindexer.cpp
-  Phys.cpp
-  PlayerController.cpp
-  renderer.cpp
-D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\renderer.cpp(25,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
-D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\renderer.cpp(160,46): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-  RescManager.cpp
-  Generating Code...
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+﻿  renderer.cpp
+D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\renderer.cpp(170,46): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\renderer.cpp(197,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
   engine.vcxproj -> D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\x64\Debug\engine.exe
