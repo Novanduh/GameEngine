@@ -94,6 +94,10 @@ void initRenderer() {
 	glBindVertexArray(VertexArrayID);
 	// Create and compile our GLSL program from the shaders
 	programID = LoadShaders("VertexShader.vertexshader", "FragmentShader.fragmentshader");
+	// Get a handle for our "myTextureSampler" uniform
+	TextureID = glGetUniformLocation(programID, "myTextureSampler");
+	// Get a handle for our "MVP" uniform
+	MatrixID = glGetUniformLocation(programID, "MVP");
 }
 
 void cameraControl() {
@@ -114,37 +118,49 @@ bool closeWindow() {
 }
 
 void render(const char* path, const char* imagepath) {
-	// Get a handle for our "MVP" uniform
-	MatrixID = glGetUniformLocation(programID, "MVP");
+	std::vector<glm::vec3> vertices;
+	std::vector<glm::vec3> vertices2;
+	std::vector<glm::vec2> uvs;
+	std::vector<glm::vec2> uvs2;
+	std::vector<glm::vec3> normals;
+	std::vector<glm::vec3> normals2;
 
 	// Load the texture
 	Texture = loadDDS(imagepath);
 
-	// Get a handle for our "myTextureSampler" uniform
-	TextureID = glGetUniformLocation(programID, "myTextureSampler");
-
 	// Read our .obj file
 	 // Won't be used at the moment.
-	
+
 	bool res = loadOBJ(path, vertices, uvs, normals);
 
 	for (int i = 0; i < vertices.size(); i++) {
-		vertices[i] +=vec3(2,0,2);
+		vertices[i] += vec3(2, 0, 2);
 	}
 
-	res = loadOBJ(path, vertices2, uvs2, normals2);
+	res = loadOBJ("cube.obj", vertices2, uvs2, normals2);
+
+	for (int i = 0; i < vertices2.size(); i++) {
+		vertices2[i] += vec3(0, 0, 0);
+	}
+
 	// Load it into a VBO
 
 
 	glGenBuffers(1, &vertexbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), &vertices[0], GL_STATIC_DRAW);
+	//glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), &vertices[0], GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, (vertices.size() + vertices2.size()) * sizeof(glm::vec3), 0, GL_STATIC_DRAW);
+	glBufferSubData(GL_ARRAY_BUFFER, 0, vertices.size() * sizeof(glm::vec3), &vertices[0]);
+	glBufferSubData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), vertices2.size() * sizeof(glm::vec3), &vertices2[0]);
 
 
 
 	glGenBuffers(1, &uvbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
-	glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
+	//glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, (uvs.size() * sizeof(glm::vec2)) + uvs2.size() * sizeof(glm::vec2), 0, GL_STATIC_DRAW);
+	glBufferSubData(GL_ARRAY_BUFFER, 0, uvs.size() * sizeof(glm::vec2), &uvs[0]);
+	glBufferSubData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), uvs2.size() * sizeof(glm::vec2), &uvs2[0]);
 
 	do {
 
@@ -187,7 +203,7 @@ void render(const char* path, const char* imagepath) {
 		);
 
 		// Draw the triangle !
-		glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+		glDrawArrays(GL_TRIANGLES, 0, vertices.size()+vertices2.size());
 
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
@@ -198,6 +214,7 @@ void render(const char* path, const char* imagepath) {
 
 	} // Check if the ESC key was pressed or the window was closed
 	while (!closeWindow());
+		
 }
 
 void cleanUp() {
@@ -216,7 +233,7 @@ void main(void)
 {
 	initRenderer();
 
-	render("viking_room.obj", "viking_room.DDS");
+	render("viking_room.obj", "3DLABbg_UV_Map_Checker_05_1024_1024.dds");
 
 	cleanUp();
 }

@@ -13,10 +13,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\common\\shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\common\\shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,19 +22,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "renderer.h",
-              "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.h",
-              "RelativeDocumentMoniker": "engine\\renderer.h",
-              "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.h",
-              "RelativeToolTip": "engine\\renderer.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-02-27T16:20:42.227Z"
+              "DocumentIndex": 0,
+              "Title": "renderer.cpp",
+              "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.cpp",
+              "RelativeDocumentMoniker": "engine\\renderer.cpp",
+              "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.cpp",
+              "RelativeToolTip": "engine\\renderer.cpp",
+              "ViewState": "AQIAAJoAAAAAAAAAAAAwwOsAAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-02-26T23:56:58.348Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -63,19 +60,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAF8AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-27T01:20:28.23Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "renderer.cpp",
-              "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.cpp",
-              "RelativeDocumentMoniker": "engine\\renderer.cpp",
-              "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.cpp",
-              "RelativeToolTip": "engine\\renderer.cpp",
-              "ViewState": "AQIAAFUAAAAAAAAAAAAqwHMAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-26T23:56:58.348Z",
               "EditorCaption": ""
             }
           ]

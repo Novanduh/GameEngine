@@ -154,6 +154,7 @@
     <ClCompile Include="RescManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="3DLABbg_UV_Map_Checker_05_1024_1024.dds" />
     <Image Include="uvmap.DDS" />
     <Image Include="viking_room.dds" />
     <Image Include="viking_room.png" />
