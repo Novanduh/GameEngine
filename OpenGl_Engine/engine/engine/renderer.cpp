@@ -37,8 +37,6 @@ std::vector<glm::vec3> normals;
 std::vector<glm::vec3> normals2;
 
 
-
-
 void initRenderer() {
 	// Initialize GLFW
 	if (!glfwInit())
@@ -117,16 +115,8 @@ bool closeWindow() {
 	return !(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && glfwWindowShouldClose(window) == 0);
 }
 
-void render(const char* path, const char* imagepath) {
-	std::vector<glm::vec3> vertices;
-	std::vector<glm::vec3> vertices2;
-	std::vector<glm::vec2> uvs;
-	std::vector<glm::vec2> uvs2;
-	std::vector<glm::vec3> normals;
-	std::vector<glm::vec3> normals2;
-
-	// Load the texture
-	Texture = loadDDS(imagepath);
+void setVert() {
+	
 
 	// Read our .obj file
 	 // Won't be used at the moment.
@@ -161,7 +151,11 @@ void render(const char* path, const char* imagepath) {
 	glBufferData(GL_ARRAY_BUFFER, (uvs.size() * sizeof(glm::vec2)) + uvs2.size() * sizeof(glm::vec2), 0, GL_STATIC_DRAW);
 	glBufferSubData(GL_ARRAY_BUFFER, 0, uvs.size() * sizeof(glm::vec2), &uvs[0]);
 	glBufferSubData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), uvs2.size() * sizeof(glm::vec2), &uvs2[0]);
+}
 
+void render() {
+	// Load the texture
+	Texture = loadDDS("3DLABbg_UV_Map_Checker_05_1024_1024.dds");
 	do {
 
 		// Clear the screen
@@ -233,7 +227,9 @@ void main(void)
 {
 	initRenderer();
 
-	render("viking_room.obj", "3DLABbg_UV_Map_Checker_05_1024_1024.dds");
+	setVert();
+	
+	render();
 
 	cleanUp();
 }
