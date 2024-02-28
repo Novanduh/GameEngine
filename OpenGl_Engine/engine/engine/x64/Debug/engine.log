@@ -1,4 +1,4 @@
 ﻿  renderer.cpp
-D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\renderer.cpp(201,48): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\renderer.cpp(228,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\renderer.cpp(196,48): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\renderer.cpp(231,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
   engine.vcxproj -> D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\x64\Debug\engine.exe
