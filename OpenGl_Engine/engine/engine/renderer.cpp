@@ -115,19 +115,18 @@ bool closeWindow() {
 	return !(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && glfwWindowShouldClose(window) == 0);
 }
 
-void setVert() {
-	
+void setVert(const char* path) {
 
 	// Read our .obj file
 	 // Won't be used at the moment.
 
-	bool res = loadOBJ("bed.obj", vertices, uvs, normals);
+	bool res = loadOBJ(path, vertices, uvs, normals);
 
 	for (int i = 0; i < vertices.size(); i++) {
 		vertices[i] += vec3(0, 0, 2);
 	}
 
-	res = loadOBJ("bed.obj", vertices2, uvs2, normals2);
+	res = loadOBJ(path, vertices2, uvs2, normals2);
 
 	for (int i = 0; i < vertices2.size(); i++) {
 		vertices2[i] += vec3(0, 0, 0);
@@ -204,6 +203,10 @@ void renderLoop() {
 	Texture = loadDDS("3DLABbg_UV_Map_Checker_05_1024_1024.dds");
 	do {
 		render();
+		if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			setVert("cube.obj");
+		}
 		// Swap buffers
 		glfwSwapBuffers(window);
 		glfwPollEvents();
@@ -229,7 +232,7 @@ void main()
 {
 	initRenderer();
 
-	setVert();
+	setVert("bed.obj");
 	
 	renderLoop();
 
