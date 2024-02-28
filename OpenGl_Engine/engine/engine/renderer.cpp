@@ -80,7 +80,7 @@ void initRenderer() {
 	glfwSetCursorPos(window, 1024 / 2, 768 / 2);
 
 	// Dark blue background
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(0.0f, 0.3f, 0.3f, 1.0f);
 
 	// Enable depth test
 	glEnable(GL_DEPTH_TEST);
@@ -131,13 +131,13 @@ void render(const char* path, const char* imagepath) {
 	// Read our .obj file
 	 // Won't be used at the moment.
 
-	bool res = loadOBJ(path, vertices, uvs, normals);
+	bool res = loadOBJ("bed.obj", vertices, uvs, normals);
 
 	for (int i = 0; i < vertices.size(); i++) {
-		vertices[i] += vec3(2, 0, 2);
+		vertices[i] += vec3(0, 0, 2);
 	}
 
-	res = loadOBJ("cube.obj", vertices2, uvs2, normals2);
+	res = loadOBJ("bed.obj", vertices2, uvs2, normals2);
 
 	for (int i = 0; i < vertices2.size(); i++) {
 		vertices2[i] += vec3(0, 0, 0);
