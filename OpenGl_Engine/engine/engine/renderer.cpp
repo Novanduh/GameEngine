@@ -205,7 +205,7 @@ void renderLoop() {
 		render();
 		if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			setVert("cube.obj");
+			setVert("bed.obj");
 		}
 		// Swap buffers
 		glfwSwapBuffers(window);

@@ -42,8 +42,7 @@
               "RelativeToolTip": "engine\\common\\controls.cpp",
               "ViewState": "AQIAAD8AAAAAAAAAAAAAAF4AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-28T15:58:13.24Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-28T15:58:13.24Z"
             },
             {
               "$type": "Document",
@@ -67,8 +66,7 @@
               "RelativeToolTip": "engine\\common\\objloader.hpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-02-28T15:57:44.521Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-28T15:57:44.521Z"
             },
             {
               "$type": "Document",
@@ -90,7 +88,7 @@
               "RelativeDocumentMoniker": "engine\\renderer.cpp",
               "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.cpp",
               "RelativeToolTip": "engine\\renderer.cpp",
-              "ViewState": "AQIAAGQAAAAAAAAAAADwvyQAAAAgAAAA",
+              "ViewState": "AQIAALUAAAAAAAAAAAAAAM8AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-26T23:56:58.348Z",
               "EditorCaption": ""
