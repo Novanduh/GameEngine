@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
-
+#include "renderer.h"
 
 // Include GLEW
 #include <glew.h>
@@ -225,7 +225,7 @@ void cleanUp() {
 	glfwTerminate();
 }
 
-void main(void)
+void main()
 {
 	initRenderer();
 
