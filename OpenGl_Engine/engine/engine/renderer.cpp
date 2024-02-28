@@ -117,13 +117,21 @@ bool closeWindow() {
 
 void setVert(const char* path) {
 
+	std::vector<glm::vec3> emptyVertices;
+	std::vector<glm::vec2> emptyUvs;
+	std::vector<glm::vec3> emptyNormals;
+
+	vertices = emptyVertices;
+	vertices2 = emptyVertices;
+	uvs = emptyUvs;
+	uvs2 = emptyUvs;
 	// Read our .obj file
 	 // Won't be used at the moment.
 
 	bool res = loadOBJ(path, vertices, uvs, normals);
 
 	for (int i = 0; i < vertices.size(); i++) {
-		vertices[i] += vec3(0, 0, 2);
+		vertices[i] += vec3(2, 0, -4);
 	}
 
 	res = loadOBJ(path, vertices2, uvs2, normals2);
@@ -205,7 +213,7 @@ void renderLoop() {
 		render();
 		if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			setVert("bed.obj");
+			setVert("cube.obj");
 		}
 		// Swap buffers
 		glfwSwapBuffers(window);
