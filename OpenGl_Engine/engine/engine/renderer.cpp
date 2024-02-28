@@ -29,6 +29,13 @@ GLuint programID;
 GLuint MatrixID;
 GLuint Texture;
 GLuint TextureID;
+std::vector<glm::vec3> vertices;
+std::vector<glm::vec3> vertices2;
+std::vector<glm::vec2> uvs;
+std::vector<glm::vec2> uvs2;
+std::vector<glm::vec3> normals;
+std::vector<glm::vec3> normals2;
+
 
 
 
@@ -37,7 +44,7 @@ void initRenderer() {
 	if (!glfwInit())
 	{
 		fprintf(stderr, "Failed to initialize GLFW\n");
-		getchar();
+		//getchar();
 	}
 
 	glfwWindowHint(GLFW_SAMPLES, 4);
@@ -50,7 +57,7 @@ void initRenderer() {
 	window = glfwCreateWindow(1240, 780, "House Explorer 3D Deluxe Ultimate Edition", NULL, NULL);
 	if (window == NULL) {
 		fprintf(stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n");
-		getchar();
+		//getchar();
 		glfwTerminate();
 	}
 	glfwMakeContextCurrent(window);
@@ -59,21 +66,21 @@ void initRenderer() {
 	glewExperimental = true; // Needed for core profile
 	if (glewInit() != GLEW_OK) {
 		fprintf(stderr, "Failed to initialize GLEW\n");
-		getchar();
+		//getchar();
 		glfwTerminate();
 	}
 
 	// Ensure we can capture the escape key being pressed below
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
 	// Hide the mouse and enable unlimited movement
-	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
 	// Set the mouse at the center of the screen
 	glfwPollEvents();
 	glfwSetCursorPos(window, 1024 / 2, 768 / 2);
 
 	// Dark blue background
-	glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 	// Enable depth test
 	glEnable(GL_DEPTH_TEST);
@@ -111,17 +118,21 @@ void render(const char* path, const char* imagepath) {
 	MatrixID = glGetUniformLocation(programID, "MVP");
 
 	// Load the texture
-	Texture = loadDDS("viking_room.DDS");
+	Texture = loadDDS(imagepath);
 
 	// Get a handle for our "myTextureSampler" uniform
 	TextureID = glGetUniformLocation(programID, "myTextureSampler");
 
 	// Read our .obj file
-	std::vector<glm::vec3> vertices;
-	std::vector<glm::vec2> uvs;
-	std::vector<glm::vec3> normals; // Won't be used at the moment.
+	 // Won't be used at the moment.
+	
 	bool res = loadOBJ(path, vertices, uvs, normals);
 
+	for (int i = 0; i < vertices.size(); i++) {
+		vertices[i] +=vec3(2,0,2);
+	}
+
+	res = loadOBJ(path, vertices2, uvs2, normals2);
 	// Load it into a VBO
 
 

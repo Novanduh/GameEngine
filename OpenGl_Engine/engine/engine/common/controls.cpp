@@ -1,4 +1,4 @@
-//From https://www.opengl-tutorial.org/download/
+//Based on from https://www.opengl-tutorial.org/download/
 // Include GLFW
 #include <GLFW/glfw3.h>
 extern GLFWwindow* window; // The "extern" keyword here is to access the variable "window" declared in tutorialXXX.cpp. This is a hack to keep the tutorials simple. Please avoid this.
@@ -9,6 +9,7 @@ extern GLFWwindow* window; // The "extern" keyword here is to access the variabl
 #include <gtc/matrix_transform.hpp>
 using namespace glm;
 #include "controls.hpp"
+
 
 glm::mat4 ViewMatrix;
 glm::mat4 ProjectionMatrix;
@@ -22,7 +23,7 @@ glm::mat4 getProjectionMatrix(){
 
 
 // Initial position : on +Z
-glm::vec3 position = glm::vec3( 0, 0, 5 ); 
+glm::vec3 position = glm::vec3( 0, 1, 5 ); 
 // Initial horizontal angle : toward -Z
 float horizontalAngle = 3.14f;
 // Initial vertical angle : none
@@ -31,7 +32,7 @@ float verticalAngle = 0.0f;
 float initialFoV = 45.0f;
 
 float speed = 3.0f; // 3 units / second
-float mouseSpeed = 0.005f;
+float mouseSpeed = 0.0005f;
 
 
 
@@ -87,6 +88,12 @@ void computeMatricesFromInputs(){
 	// Strafe left
 	if (glfwGetKey( window, GLFW_KEY_A ) == GLFW_PRESS){
 		position -= right * deltaTime * speed;
+	}
+	if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) {
+		position += vec3(0,0.5,0) * deltaTime * speed;
+	}
+	if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
+		position -= vec3(0, 0.5, 0) * deltaTime * speed;
 	}
 
 	float FoV = initialFoV;// - 5 * glfwGetMouseWheel(); // Now GLFW 3 requires setting up a callback for this. It's a bit too complicated for this beginner's tutorial, so it's disabled instead.
