@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\RescManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\RescManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\FragmentShader.fragmentshader||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\FragmentShader.fragmentshader||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
@@ -38,11 +42,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "RescManager.cpp",
+              "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\RescManager.cpp",
+              "RelativeDocumentMoniker": "engine\\RescManager.cpp",
+              "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\RescManager.cpp",
+              "RelativeToolTip": "engine\\RescManager.cpp",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-02-29T18:25:39.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "VertexShader.vertexshader",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\VertexShader.vertexshader",
               "RelativeDocumentMoniker": "engine\\VertexShader.vertexshader",
@@ -50,12 +67,11 @@
               "RelativeToolTip": "engine\\VertexShader.vertexshader",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-02-28T23:27:23.986Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-28T23:27:23.986Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FragmentShader.fragmentshader",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\FragmentShader.fragmentshader",
               "RelativeDocumentMoniker": "engine\\FragmentShader.fragmentshader",
@@ -68,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "controls.cpp",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\common\\controls.cpp",
               "RelativeDocumentMoniker": "engine\\common\\controls.cpp",
@@ -80,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "controls.hpp",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\common\\controls.hpp",
               "RelativeDocumentMoniker": "engine\\common\\controls.hpp",
@@ -92,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "objloader.hpp",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\common\\objloader.hpp",
               "RelativeDocumentMoniker": "engine\\common\\objloader.hpp",
@@ -104,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "renderer.h",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.h",
               "RelativeDocumentMoniker": "engine\\renderer.h",
@@ -116,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "renderer.cpp",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.cpp",
               "RelativeDocumentMoniker": "engine\\renderer.cpp",
@@ -124,8 +140,7 @@
               "RelativeToolTip": "engine\\renderer.cpp",
               "ViewState": "AQIAAGIAAAAAAAAAAAAswJkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-02-26T23:56:58.348Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-26T23:56:58.348Z"
             }
           ]
         }
