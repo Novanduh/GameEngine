@@ -1,9 +1,9 @@
 #include <string>
-#include <stdlib.h>
-#include <stdio.h>
 
-public class GameObject {
-private:
+using namespace std;
+
+class GameObject {
+public:
 	string TexturePath;
 	string ObjPath;
 	float x;
