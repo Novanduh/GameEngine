@@ -1,11 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project>
-  <ProjectOutputs>
-    <ProjectOutput>
-      <FullPath>D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\x64\Debug\engine.exe</FullPath>
-    </ProjectOutput>
-  </ProjectOutputs>
-  <ContentFiles />
-  <SatelliteDlls />
-  <NonRecipeFileRefs />
-</Project>
+version https://git-lfs.github.com/spec/v1
+oid sha256:1d5cd312d65ddf215f87e88ddd338c02a722c41d56a9dd229f185e02377eb86a
+size 297

@@ -1,7 +1,3 @@
-﻿  RescManager.cpp
-  objloader.cpp
-  renderer.cpp
-D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\renderer.cpp(203,48): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\renderer.cpp(240,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
-  Generating Code...
-  engine.vcxproj -> D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\x64\Debug\engine.exe
+version https://git-lfs.github.com/spec/v1
+oid sha256:57ec2cb92d7170a8884c75e42934033415db015065dd92c7686709bde9479850
+size 79
