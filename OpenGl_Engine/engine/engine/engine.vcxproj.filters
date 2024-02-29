@@ -54,13 +54,14 @@
     <ClCompile Include="RescManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameLoop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="uvmap.DDS" />
-    <Image Include="viking_room.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="viking_room.dds" />
+    <Image Include="3DLABbg_UV_Map_Checker_05_1024_1024.dds" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FragmentShader.fragmentshader" />
@@ -69,6 +70,7 @@
   <ItemGroup>
     <Object Include="cube.obj" />
     <Object Include="viking_room.obj" />
+    <Object Include="bed.obj" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\controls.hpp">
