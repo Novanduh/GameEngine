@@ -8,6 +8,8 @@ D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\common\text2D.cpp;D:\Ga
 D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\common\texture.cpp;D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\x64\Debug\texture.obj
 D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\common\vboindexer.cpp;D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\x64\Debug\vboindexer.obj
 D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\GameLoop.cpp;D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\x64\Debug\GameLoop.obj
+D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\Light.cpp;D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\x64\Debug\Light.obj
+D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\LightingSystem.cpp;D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\x64\Debug\LightingSystem.obj
 D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\Phys.cpp;D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\x64\Debug\Phys.obj
 D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\PlayerController.cpp;D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\x64\Debug\PlayerController.obj
 D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\renderer.cpp;D:\GameEngineRepo\GameEngine\OpenGl_Engine\engine\engine\x64\Debug\renderer.obj

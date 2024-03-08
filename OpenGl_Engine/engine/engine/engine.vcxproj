@@ -149,6 +149,8 @@
     <ClCompile Include="common\texture.cpp" />
     <ClCompile Include="common\vboindexer.cpp" />
     <ClCompile Include="GameLoop.cpp" />
+    <ClCompile Include="Light.cpp" />
+    <ClCompile Include="LightingSystem.cpp" />
     <ClCompile Include="Phys.cpp" />
     <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="renderer.cpp" />
