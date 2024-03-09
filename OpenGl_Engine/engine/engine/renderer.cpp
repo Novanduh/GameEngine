@@ -32,6 +32,13 @@ GLuint programID;
 GLuint MatrixID;
 GLuint Texture;
 GLuint TextureID;
+
+GLuint AmbientID;
+GLuint DiffuseID;
+GLuint SpecularID;
+GLuint LightID;
+GLuint ShineID;
+
 std::vector<glm::vec3> vertices;
 std::vector<glm::vec2> uvs;
 std::vector<glm::vec3> normals;
@@ -100,7 +107,13 @@ void initRenderer() {
 	// Get a handle for our "MVP" uniform
 	MatrixID = glGetUniformLocation(programID, "MVP");
 
-	Light light1(vec3(10, 10, 0), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7));
+	AmbientID = glGetUniformLocation(programID, "ambient");
+	DiffuseID = glGetUniformLocation(programID, "diffuse");
+	SpecularID = glGetUniformLocation(programID, "specular");
+	LightID = glGetUniformLocation(programID, "lightPosition");
+	ShineID = glGetUniformLocation(programID, "shininess");
+
+	Light light1(vec3(10, 10, 0), vec3(0.0, 0.2, 0.7), vec3(0.5, 0.2, 0.0), vec3(0.5, 0.2, 0.3));
 	Light light2(vec3(5, 10, 5), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7));
 
 	lightSystem.addLight(light1);
@@ -120,6 +133,15 @@ void cameraControl() {
 	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 }
 
+void lightControl() {
+	lightSystem.calcLight();
+	glUniform3fv(AmbientID, 1, &lightSystem.getAmbientProduct()[0][0]);
+	glUniform3fv(DiffuseID, 1, &lightSystem.getDiffuseProduct()[0][0]);
+	glUniform3fv(SpecularID, 1, &lightSystem.getSpecularProduct()[0][0]);
+	glUniform3fv(LightID, 1, &lightSystem.lights[0].getLightPosition()[0]);
+	glUniform1f(ShineID, 50.0f);
+}
+
 bool closeWindow() {
 	return !(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && glfwWindowShouldClose(window) == 0);
 }
@@ -134,7 +156,7 @@ void render(const char* path, glm::vec3 position) {
 	uvs.clear();
 	normals.clear();
 
-	lightSystem.calcLight();
+	lightControl();
 
 		bool res = loadOBJ(path, vertices, uvs, normals);
 
@@ -216,6 +238,7 @@ void GameLoop() {
 void cleanUp() {
 	glDeleteBuffers(1, &vertexbuffer);
 	glDeleteBuffers(1, &uvbuffer);
+	glDeleteBuffers(1, &normalbuffer);
 	glDeleteProgram(programID);
 	glDeleteTextures(1, &Texture);
 	glDeleteVertexArrays(1, &VertexArrayID);

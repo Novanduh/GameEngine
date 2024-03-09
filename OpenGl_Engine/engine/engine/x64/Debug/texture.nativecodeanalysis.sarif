@@ -1,0 +1,583 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "Return value ignored: 'getchar'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                },
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 3,
+                  "endLine": 28,
+                  "endColumn": 10
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "loadBMP_custom",
+                  "decoratedName": "?loadBMP_custom@@YAIPEBD@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "Return value ignored: 'getchar'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                },
+                "region": {
+                  "startLine": 138,
+                  "startColumn": 115,
+                  "endLine": 138,
+                  "endColumn": 122
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "loadDDS",
+                  "decoratedName": "?loadDDS@@YAIPEBD@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6054",
+          "message": {
+            "text": "String 'filecode' might not be zero-terminated."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                },
+                "region": {
+                  "startLine": 145,
+                  "startColumn": 6,
+                  "endLine": 145,
+                  "endColumn": 38
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "loadDDS",
+                  "decoratedName": "?loadDDS@@YAIPEBD@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 131,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 133,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 136,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 137,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 143,
+                            "startColumn": 7
+                          }
+                        },
+                        "message": {
+                          "text": "This expression may not zero-terminate 'filecode'"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 144,
+                            "startColumn": 7
+                          }
+                        },
+                        "message": {
+                          "text": "'filecode' is an Output from 'fread' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\stdio.h:239)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 145,
+                            "startColumn": 35
+                          }
+                        },
+                        "message": {
+                          "text": "'filecode' should be zero-terminated but may not be"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6387",
+          "message": {
+            "text": "'buffer' could be '0':  this does not adhere to the specification for the function 'fread'. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                },
+                "region": {
+                  "startLine": 165,
+                  "startColumn": 2,
+                  "endLine": 165,
+                  "endColumn": 28
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "loadDDS",
+                  "decoratedName": "?loadDDS@@YAIPEBD@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 131,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 133,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 136,
+                            "startColumn": 5
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 137,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 143,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 144,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 145,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 151,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 153,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 154,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 155,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 156,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 157,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 160,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 161,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 163,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 164,
+                            "startColumn": 9
+                          }
+                        },
+                        "message": {
+                          "text": "'buffer' may be NULL"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 165,
+                            "startColumn": 7
+                          }
+                        },
+                        "message": {
+                          "text": "'buffer' is an In/Out argument to 'fread' (declared at c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\stdio.h:239)"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ]
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+                          },
+                          "region": {
+                            "startLine": 165,
+                            "startColumn": 7
+                          }
+                        },
+                        "message": {
+                          "text": "'buffer' should not be NULL, because this is not consistent with the SAL annotation on 'fread'"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.39.33519.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/texture.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "14103b35ab817563412c8cfd015a11c8cc36570c4684deab6ba51bf6e2a3083d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/opengl_engine/glew-2.2.0/include/gl/glew.h"
+          },
+          "hashes": {
+            "sha-256": "7915ad6b541ac92c8312a1d84da20cc3138321a0b0975ac959c15891df208f03"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/opengl_engine/glfw-3.3.9.bin.win64/glfw-3.3.9.bin.win64/include/glfw/glfw3.h"
+          },
+          "hashes": {
+            "sha-256": "5918aa256f18ff1cc337f9ca44b0c8ab5e89c4934673bd1413a334ecfb21c0fd"
+          }
+        }
+      ]
+    }
+  ]
+}

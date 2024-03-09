@@ -32,10 +32,11 @@ private:
 	std::vector<glm::vec3> ambientProduct;
 	std::vector<glm::vec3> diffuseProduct;
 	std::vector<glm::vec3> specularProduct;
-	std::vector<Light> lights;
+	
 
 public:
 	StandardMaterial material;
+	std::vector<Light> lights;
 	void addLight(Light light);
 	void calcLight();
 	std::vector<glm::vec3> getAmbientProduct();

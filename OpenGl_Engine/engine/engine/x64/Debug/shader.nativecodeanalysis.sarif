@@ -1,0 +1,81 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C6031",
+          "message": {
+            "text": "Return value ignored: 'getchar'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/shader.cpp"
+                },
+                "region": {
+                  "startLine": 34,
+                  "startColumn": 3,
+                  "endLine": 34,
+                  "endColumn": 10
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "LoadShaders",
+                  "decoratedName": "?LoadShaders@@YAIPEBD0@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.39.33519.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///D:/GameEngineRepo/GameEngine/OpenGl_Engine/engine/engine/common/shader.cpp"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "5a5f3d1700947f5a984eab206f0359d481e7cb2e4f8f218e073038f1b184983a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/opengl_engine/glew-2.2.0/include/gl/glew.h"
+          },
+          "hashes": {
+            "sha-256": "7915ad6b541ac92c8312a1d84da20cc3138321a0b0975ac959c15891df208f03"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/gameenginerepo/gameengine/opengl_engine/engine/engine/common/shader.hpp"
+          },
+          "hashes": {
+            "sha-256": "be6dfea47b298f02b3f49c4ab8befb177a6a1c516c13f1a69b637bb805bbd869"
+          }
+        }
+      ]
+    }
+  ]
+}

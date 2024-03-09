@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\VertexShader.vertexshader||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\VertexShader.vertexshader||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\renderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\VertexShader.vertexshader||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\VertexShader.vertexshader||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\FragmentShader.fragmentshader||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -19,20 +19,16 @@
       "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\LightingSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\LightingSystem.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\Light.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\Light.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\Light.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\Light.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\LightingSystem.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\common\\objloader.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\common\\objloader.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,33 +37,20 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "DockedWidth": 202,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "objloader.hpp",
-              "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\common\\objloader.hpp",
-              "RelativeDocumentMoniker": "engine\\common\\objloader.hpp",
-              "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\common\\objloader.hpp",
-              "RelativeToolTip": "engine\\common\\objloader.hpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-09T00:13:44.412Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "LightingSystem.hpp",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.hpp",
               "RelativeDocumentMoniker": "engine\\LightingSystem.hpp",
               "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.hpp",
               "RelativeToolTip": "engine\\LightingSystem.hpp",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACUAAAAbAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAACYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-08T21:41:43.319Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-08T21:41:43.319Z"
             },
             {
               "$type": "Document",
@@ -79,12 +62,11 @@
               "RelativeToolTip": "engine\\LightingSystem.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-06T02:35:52.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-06T02:35:52.007Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Light.hpp",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\Light.hpp",
               "RelativeDocumentMoniker": "engine\\Light.hpp",
@@ -92,12 +74,11 @@
               "RelativeToolTip": "engine\\Light.hpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-08T22:38:54.263Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-08T22:38:54.263Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Light.cpp",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\Light.cpp",
               "RelativeDocumentMoniker": "engine\\Light.cpp",
@@ -105,18 +86,17 @@
               "RelativeToolTip": "engine\\Light.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwB4AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-06T02:35:18.534Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-06T02:35:18.534Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "renderer.cpp",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.cpp",
               "RelativeDocumentMoniker": "engine\\renderer.cpp",
               "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.cpp",
               "RelativeToolTip": "engine\\renderer.cpp",
-              "ViewState": "AQIAAGwAAAAAAAAAAAAiwGQAAAAMAAAA",
+              "ViewState": "AQIAAIsAAAAAAAAAAAAYwKsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-26T23:56:58.348Z",
               "EditorCaption": ""
@@ -131,24 +111,23 @@
               "RelativeToolTip": "engine\\FragmentShader.fragmentshader",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-03-08T02:42:50.135Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-08T02:42:50.135Z"
             }
           ]
         },
         {
-          "DockedWidth": 200,
+          "DockedWidth": 198,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "VertexShader.vertexshader",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\VertexShader.vertexshader",
               "RelativeDocumentMoniker": "engine\\VertexShader.vertexshader",
               "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\VertexShader.vertexshader",
               "RelativeToolTip": "engine\\VertexShader.vertexshader",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAABDAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-03-08T02:42:49.097Z",
               "EditorCaption": ""
