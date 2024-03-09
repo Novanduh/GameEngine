@@ -27,6 +27,7 @@ using namespace glm;
 GLuint VertexArrayID;
 GLuint vertexbuffer;
 GLuint uvbuffer;
+GLuint normalbuffer;
 GLuint programID;
 GLuint MatrixID;
 GLuint Texture;
@@ -36,6 +37,7 @@ std::vector<glm::vec2> uvs;
 std::vector<glm::vec3> normals;
 std::vector<const char*> paths;
 std::vector<glm::vec3> positions;
+LightingSystem lightSystem;
 
 
 void initRenderer() {
@@ -79,7 +81,7 @@ void initRenderer() {
 	glfwSetCursorPos(window, 1024 / 2, 768 / 2);
 
 	// Dark blue background
-	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 
 	// Enable depth test
 	glEnable(GL_DEPTH_TEST);
@@ -97,8 +99,6 @@ void initRenderer() {
 	TextureID = glGetUniformLocation(programID, "myTextureSampler");
 	// Get a handle for our "MVP" uniform
 	MatrixID = glGetUniformLocation(programID, "MVP");
-
-	LightingSystem lightSystem;
 
 	Light light1(vec3(10, 10, 0), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7));
 	Light light2(vec3(5, 10, 5), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7));
@@ -134,6 +134,7 @@ void render(const char* path, glm::vec3 position) {
 	uvs.clear();
 	normals.clear();
 
+	lightSystem.calcLight();
 
 		bool res = loadOBJ(path, vertices, uvs, normals);
 
@@ -141,7 +142,7 @@ void render(const char* path, glm::vec3 position) {
 			vertices[i] += position;
 		}
 
-		Texture = loadDDS("3DLABbg_UV_Map_Checker_05_1024_1024.dds");
+		Texture = loadDDS("CustomUVChecker_byValle_2K.dds");
 
 		glGenBuffers(1, &vertexbuffer);
 		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
@@ -150,6 +151,10 @@ void render(const char* path, glm::vec3 position) {
 		glGenBuffers(1, &uvbuffer);
 		glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
 		glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
+
+		glGenBuffers(1, &normalbuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
+		glBufferData(GL_ARRAY_BUFFER, normals.size() * sizeof(glm::vec3), &normals[0], GL_STATIC_DRAW);
 
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, Texture);
@@ -171,6 +176,17 @@ void render(const char* path, glm::vec3 position) {
 		glVertexAttribPointer(
 			1,                                // attribute
 			2,                                // size
+			GL_FLOAT,                         // type
+			GL_FALSE,                         // normalized?
+			0,                                // stride
+			(void*)0                          // array buffer offset
+		);
+
+		glEnableVertexAttribArray(2);
+		glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
+		glVertexAttribPointer(
+			1,                                // attribute
+			3,                                // size
 			GL_FLOAT,                         // type
 			GL_FALSE,                         // normalized?
 			0,                                // stride
@@ -208,7 +224,7 @@ void cleanUp() {
 }
 
 void main()
-{
+{ 
 	initRenderer();
 
 	//test scene

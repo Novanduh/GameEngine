@@ -29,13 +29,13 @@ public:
 
 class LightingSystem {
 private:
-	StandardMaterial material;
 	std::vector<glm::vec3> ambientProduct;
 	std::vector<glm::vec3> diffuseProduct;
 	std::vector<glm::vec3> specularProduct;
 	std::vector<Light> lights;
 
 public:
+	StandardMaterial material;
 	void addLight(Light light);
 	void calcLight();
 	std::vector<glm::vec3> getAmbientProduct();

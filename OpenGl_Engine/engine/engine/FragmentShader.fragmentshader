@@ -3,6 +3,8 @@
 // Interpolated values from the vertex shaders
 in vec2 UV;
 
+in vec3 gouraudColor;
+
 // Output data
 out vec3 color;
 
@@ -12,5 +14,5 @@ uniform sampler2D myTextureSampler;
 void main(){
 
 	// Output color = color of the texture at the specified UV
-	color = texture( myTextureSampler, UV ).rgb + vec3(1,0.3,0.3);
+	color = texture( myTextureSampler, UV ).rgb + gouraudColor;
 }
