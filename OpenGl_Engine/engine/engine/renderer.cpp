@@ -44,6 +44,7 @@ std::vector<glm::vec2> uvs;
 std::vector<glm::vec3> normals;
 std::vector<const char*> paths;
 std::vector<glm::vec3> positions;
+std::vector<const char*> textures;
 LightingSystem lightSystem;
 
 
@@ -113,7 +114,7 @@ void initRenderer() {
 	LightID = glGetUniformLocation(programID, "lightPosition");
 	ShineID = glGetUniformLocation(programID, "shininess");
 
-	Light light1(vec3(10, 10, 0), vec3(0.0, 0.2, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.0, 0.2, 0.3));
+	Light light1(vec3(20, 20, 20), vec3(0.1, 0.0, 0.1), vec3(0.0, 0.3, 0.5), vec3(0.0, 0.0, 0.5));
 	Light light2(vec3(5, 10, 5), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7));
 
 	lightSystem.addLight(light1);
@@ -146,7 +147,7 @@ bool closeWindow() {
 	return !(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && glfwWindowShouldClose(window) == 0);
 }
 
-void render(const char* path, glm::vec3 position) {
+void render(const char* path, glm::vec3 position, const char* texture) {
 
 	glUseProgram(programID);
 
@@ -164,7 +165,7 @@ void render(const char* path, glm::vec3 position) {
 			vertices[i] += position;
 		}
 
-		Texture = loadDDS("CustomUVChecker_byValle_2K.dds");
+		Texture = loadDDS(texture);
 
 		glGenBuffers(1, &vertexbuffer);
 		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
@@ -226,7 +227,7 @@ void GameLoop() {
 	do {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		for (int i = 0; i < paths.size(); i++)
-			render(paths[i], positions[i]);
+			render(paths[i], positions[i], textures[i]);
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
@@ -253,10 +254,13 @@ void main()
 	//test scene
 	paths.push_back("bed.obj");
 	positions.push_back(vec3(2, 0, -2));
+	textures.push_back("CustomUVChecker_byValle_2K.dds");
 	paths.push_back("cube.obj");
 	positions.push_back(vec3(10, 0, -2));
+	textures.push_back("uvmap.dds");
 	paths.push_back("viking_room.obj");
 	positions.push_back(vec3(2, 0, -10));
+	textures.push_back("viking_room.dds");
 	/////////////
 	
 	GameLoop();
