@@ -33,6 +33,6 @@ void main(){
 	vec3 D = max(dot(distance, norm), 0.0) * diffuse;
 	vec3 S = pow(max(dot(norm,reflect), 0.0), shininess) * specular;
 
-	gouraudColor = vec3(0.0, 0.2, 0.3); //min(A+D+S, 1.0);
+	gouraudColor = vec3(0.3,0.0,0.4); //min(A+D+S, 1.0);
 }
 
