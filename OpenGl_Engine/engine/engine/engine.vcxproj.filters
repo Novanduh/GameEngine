@@ -54,9 +54,6 @@
     <ClCompile Include="RescManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameLoop.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Light.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -103,7 +100,10 @@
     <ClInclude Include="common\vboindexer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="renderer.h">
+    <ClInclude Include="LightingSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
-#include "renderer.h"
+
 
 // Include GLEW
 #include <glew.h>
@@ -21,6 +21,8 @@ using namespace glm;
 #include <texture.hpp>
 #include <controls.hpp>
 #include <objloader.hpp>
+#include "LightingSystem.hpp"
+#include "Light.hpp"
 
 GLuint VertexArrayID;
 GLuint vertexbuffer;
@@ -30,11 +32,10 @@ GLuint MatrixID;
 GLuint Texture;
 GLuint TextureID;
 std::vector<glm::vec3> vertices;
-std::vector<glm::vec3> vertices2;
 std::vector<glm::vec2> uvs;
-std::vector<glm::vec2> uvs2;
 std::vector<glm::vec3> normals;
-std::vector<glm::vec3> normals2;
+std::vector<const char*> paths;
+std::vector<glm::vec3> positions;
 
 
 void initRenderer() {
@@ -78,7 +79,7 @@ void initRenderer() {
 	glfwSetCursorPos(window, 1024 / 2, 768 / 2);
 
 	// Dark blue background
-	glClearColor(0.0f, 0.3f, 0.3f, 1.0f);
+	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 
 	// Enable depth test
 	glEnable(GL_DEPTH_TEST);
@@ -96,6 +97,14 @@ void initRenderer() {
 	TextureID = glGetUniformLocation(programID, "myTextureSampler");
 	// Get a handle for our "MVP" uniform
 	MatrixID = glGetUniformLocation(programID, "MVP");
+
+	LightingSystem lightSystem;
+
+	Light light1(vec3(10, 10, 0), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7));
+	Light light2(vec3(5, 10, 5), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7));
+
+	lightSystem.addLight(light1);
+	lightSystem.addLight(light2);
 }
 
 void cameraControl() {
@@ -115,124 +124,86 @@ bool closeWindow() {
 	return !(glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS && glfwWindowShouldClose(window) == 0);
 }
 
-void setVert(const char* path) {
+void render(const char* path, glm::vec3 position) {
 
-	std::vector<glm::vec3> emptyVertices;
-	std::vector<glm::vec2> emptyUvs;
-	std::vector<glm::vec3> emptyNormals;
-
-	vertices = emptyVertices;
-	vertices2 = emptyVertices;
-	uvs = emptyUvs;
-	uvs2 = emptyUvs;
-	// Read our .obj file
-	 // Won't be used at the moment.
-
-	bool res = loadOBJ(path, vertices, uvs, normals);
-
-	for (int i = 0; i < vertices.size(); i++) {
-		vertices[i] += vec3(2, 0, -4);
-	}
-
-	res = loadOBJ(path, vertices2, uvs2, normals2);
-
-	for (int i = 0; i < vertices2.size(); i++) {
-		vertices2[i] += vec3(0, 0, 0);
-	}
-
-	// Load it into a VBO
-
-
-	glGenBuffers(1, &vertexbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	//glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), &vertices[0], GL_STATIC_DRAW);
-	glBufferData(GL_ARRAY_BUFFER, (vertices.size() + vertices2.size()) * sizeof(glm::vec3), 0, GL_STATIC_DRAW);
-	glBufferSubData(GL_ARRAY_BUFFER, 0, vertices.size() * sizeof(glm::vec3), &vertices[0]);
-	glBufferSubData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), vertices2.size() * sizeof(glm::vec3), &vertices2[0]);
-
-
-
-	glGenBuffers(1, &uvbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
-	//glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
-	glBufferData(GL_ARRAY_BUFFER, (uvs.size() * sizeof(glm::vec2)) + uvs2.size() * sizeof(glm::vec2), 0, GL_STATIC_DRAW);
-	glBufferSubData(GL_ARRAY_BUFFER, 0, uvs.size() * sizeof(glm::vec2), &uvs[0]);
-	glBufferSubData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), uvs2.size() * sizeof(glm::vec2), &uvs2[0]);
-}
-
-void render() {
-	// Clear the screen
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	// Use our shader
 	glUseProgram(programID);
 
 	cameraControl();
 
-	// Bind our texture in Texture Unit 0
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, Texture);
-	// Set our "myTextureSampler" sampler to use Texture Unit 0
-	glUniform1i(TextureID, 0);
+	vertices.clear();
+	uvs.clear();
+	normals.clear();
 
-	// 1rst attribute buffer : vertices
-	glEnableVertexAttribArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	glVertexAttribPointer(
-		0,                  // attribute
-		3,                  // size
-		GL_FLOAT,           // type
-		GL_FALSE,           // normalized?
-		0,                  // stride
-		(void*)0            // array buffer offset
-	);
 
-	// 2nd attribute buffer : UVs
-	glEnableVertexAttribArray(1);
-	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
-	glVertexAttribPointer(
-		1,                                // attribute
-		2,                                // size
-		GL_FLOAT,                         // type
-		GL_FALSE,                         // normalized?
-		0,                                // stride
-		(void*)0                          // array buffer offset
-	);
+		bool res = loadOBJ(path, vertices, uvs, normals);
 
-	// Draw the triangle !
-	glDrawArrays(GL_TRIANGLES, 0, vertices.size() + vertices2.size());
+		for (int i = 0; i < vertices.size(); i++) {
+			vertices[i] += position;
+		}
+
+		Texture = loadDDS("3DLABbg_UV_Map_Checker_05_1024_1024.dds");
+
+		glGenBuffers(1, &vertexbuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+		glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(glm::vec3), &vertices[0], GL_STATIC_DRAW);
+
+		glGenBuffers(1, &uvbuffer);
+		glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
+		glBufferData(GL_ARRAY_BUFFER, uvs.size() * sizeof(glm::vec2), &uvs[0], GL_STATIC_DRAW);
+
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, Texture);
+		glUniform1i(TextureID, 0);
+
+		glEnableVertexAttribArray(0);
+		glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+		glVertexAttribPointer(
+			0,                  // attribute
+			3,                  // size
+			GL_FLOAT,           // type
+			GL_FALSE,           // normalized?
+			0,                  // stride
+			(void*)0            // array buffer offset
+		);
+
+		glEnableVertexAttribArray(1);
+		glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
+		glVertexAttribPointer(
+			1,                                // attribute
+			2,                                // size
+			GL_FLOAT,                         // type
+			GL_FALSE,                         // normalized?
+			0,                                // stride
+			(void*)0                          // array buffer offset
+		);
+
+		glDrawArrays(GL_TRIANGLES, 0, vertices.size());
+
 
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
 }
 
-void renderLoop() {
-	// Load the texture
-	Texture = loadDDS("3DLABbg_UV_Map_Checker_05_1024_1024.dds");
+void GameLoop() {
 	do {
-		render();
-		if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS) {
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			setVert("cube.obj");
-		}
-		// Swap buffers
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		for (int i = 0; i < paths.size(); i++)
+			render(paths[i], positions[i]);
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
-	} // Check if the ESC key was pressed or the window was closed
+	}
 	while (!closeWindow());
 		
 }
 
 void cleanUp() {
-	// Cleanup VBO and shader
 	glDeleteBuffers(1, &vertexbuffer);
 	glDeleteBuffers(1, &uvbuffer);
 	glDeleteProgram(programID);
 	glDeleteTextures(1, &Texture);
 	glDeleteVertexArrays(1, &VertexArrayID);
 
-	// Close OpenGL window and terminate GLFW
 	glfwTerminate();
 }
 
@@ -240,9 +211,16 @@ void main()
 {
 	initRenderer();
 
-	setVert("bed.obj");
+	//test scene
+	paths.push_back("bed.obj");
+	positions.push_back(vec3(2, 0, -2));
+	paths.push_back("cube.obj");
+	positions.push_back(vec3(10, 0, -2));
+	paths.push_back("viking_room.obj");
+	positions.push_back(vec3(2, 0, -10));
+	/////////////
 	
-	renderLoop();
+	GameLoop();
 
 	cleanUp();
 }

@@ -1,17 +1,49 @@
-#define GLM_ENABLE_EXPERIMENTAL
-#include <vector>
-#include <glm.hpp>
-using namespace glm;
+#include "Light.hpp"
 
+Light::Light(glm::vec3 position, glm::vec3 ambient, glm::vec3 diffuse, glm::vec3 specular)
+{
+	lightPosition = position;
+	lightAmbientValue = ambient;
+	lightDiffuseValue = diffuse;
+	lightSpecularValue = specular;
+}
 
+void Light::setLightPoistion(glm::vec3 position)
+{
+	lightPosition = position;
+}
 
-std::vector<glm::vec3> lightPosition;
+void Light::setLightAmbient(glm::vec3 value)
+{
+	lightAmbientValue = value;
+}
 
-std::vector<glm::vec3> lightAmbientValue;
-std::vector<glm::vec3> lightDiffuseValue;
-std::vector<glm::vec3> lightSpecularValue;
+void Light::setLightDiffuse(glm::vec3 value)
+{
+	lightDiffuseValue = value;
+}
 
-std::vector<glm::vec3> ambientProduct;
-std::vector<glm::vec3> diffuseProduct;
-std::vector<glm::vec3> specularProduct;
+void Light::setLightSpecular(glm::vec3 value)
+{
+	lightSpecularValue = value;
+}
 
+glm::vec3 Light::getLightPoistion()
+{
+	return lightPosition;
+}
+
+glm::vec3 Light::getLightAmbient()
+{
+	return lightAmbientValue;
+}
+
+glm::vec3 Light::getLightDiffuse()
+{
+	return lightDiffuseValue;
+}
+
+glm::vec3 Light::getLightSpecular()
+{
+	return lightSpecularValue;
+}
