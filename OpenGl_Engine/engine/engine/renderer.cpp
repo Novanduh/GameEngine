@@ -113,7 +113,7 @@ void initRenderer() {
 	LightID = glGetUniformLocation(programID, "lightPosition");
 	ShineID = glGetUniformLocation(programID, "shininess");
 
-	Light light1(vec3(10, 10, 0), vec3(0.0, 0.2, 0.7), vec3(0.5, 0.2, 0.0), vec3(0.5, 0.2, 0.3));
+	Light light1(vec3(10, 10, 0), vec3(0.0, 0.2, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.0, 0.2, 0.3));
 	Light light2(vec3(5, 10, 5), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7));
 
 	lightSystem.addLight(light1);
@@ -207,7 +207,7 @@ void render(const char* path, glm::vec3 position) {
 		glEnableVertexAttribArray(2);
 		glBindBuffer(GL_ARRAY_BUFFER, normalbuffer);
 		glVertexAttribPointer(
-			1,                                // attribute
+			2,                                // attribute
 			3,                                // size
 			GL_FLOAT,                         // type
 			GL_FALSE,                         // normalized?

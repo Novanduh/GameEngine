@@ -27,12 +27,11 @@ void main(){
 	vec3 distance = normalize(lightPosition - position);
 	vec3 lightVector = normalize(-position);
 	vec3 reflect = normalize(distance + lightVector);
-	vec3 N = normals;
 	vec3 norm = normalize(MVP * vec4(normals, 0)).xyz;
 	vec3 A = ambient;
 	vec3 D = max(dot(distance, norm), 0.0) * diffuse;
 	vec3 S = pow(max(dot(norm,reflect), 0.0), shininess) * specular;
 
-	gouraudColor = vec3(0.3,0.0,0.4); //min(A+D+S, 1.0);
+	gouraudColor = min(A+D+S, 1.0);
 }
 
