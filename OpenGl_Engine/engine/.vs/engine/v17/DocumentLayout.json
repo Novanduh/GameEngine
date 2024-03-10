@@ -7,20 +7,20 @@
       "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\renderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\VertexShader.vertexshader||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\VertexShader.vertexshader||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\LightingSystem.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\LightingSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\FragmentShader.fragmentshader||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\FragmentShader.fragmentshader||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\VertexShader.vertexshader||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\VertexShader.vertexshader||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\LightingSystem.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\FragmentShader.fragmentshader||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\FragmentShader.fragmentshader||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\Light.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -42,15 +42,16 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "LightingSystem.hpp",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.hpp",
               "RelativeDocumentMoniker": "engine\\LightingSystem.hpp",
               "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.hpp",
               "RelativeToolTip": "engine\\LightingSystem.hpp",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACYAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-08T21:41:43.319Z"
+              "WhenOpened": "2024-03-08T21:41:43.319Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -60,7 +61,7 @@
               "RelativeDocumentMoniker": "engine\\LightingSystem.cpp",
               "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.cpp",
               "RelativeToolTip": "engine\\LightingSystem.cpp",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAARAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAkAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-06T02:35:52.007Z",
               "EditorCaption": ""
@@ -97,14 +98,14 @@
               "RelativeDocumentMoniker": "engine\\renderer.cpp",
               "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.cpp",
               "RelativeToolTip": "engine\\renderer.cpp",
-              "ViewState": "AQIAAF4AAAAAAAAAAAAQwJUAAAAAAAAA",
+              "ViewState": "AQIAAGQAAAAAAAAAAAAAwHYAAABUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-26T23:56:58.348Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "FragmentShader.fragmentshader",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\FragmentShader.fragmentshader",
               "RelativeDocumentMoniker": "engine\\FragmentShader.fragmentshader",
@@ -122,7 +123,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "VertexShader.vertexshader",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\VertexShader.vertexshader",
               "RelativeDocumentMoniker": "engine\\VertexShader.vertexshader",

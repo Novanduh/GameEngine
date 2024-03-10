@@ -7,10 +7,10 @@ using namespace glm;
 
 class StandardMaterial {
 private:
-	float shininess = 60.0f;
-	glm::vec3 materialAmbientValue = vec3(0.5, 0.2, 0.7);
-	glm::vec3 materialDiffuseValue = vec3(0.7, 0.2, 0.7);
-	glm::vec3 materialSpecularValue = vec3(0.5, 0.2, 0.5);
+	float shininess = 30.0f;
+	glm::vec3 materialAmbientValue = vec3(0.5, 0.5, 0.5);
+	glm::vec3 materialDiffuseValue = vec3(0.2, 0.2, 0.2);
+	glm::vec3 materialSpecularValue = vec3(0.3, 0.3, 0.3);
 
 public:
 	glm::vec3 getAmbient() {

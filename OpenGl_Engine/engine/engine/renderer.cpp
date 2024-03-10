@@ -114,17 +114,13 @@ void initRenderer() {
 	LightID = glGetUniformLocation(programID, "lightPosition");
 	ShineID = glGetUniformLocation(programID, "shininess");
 
-	Light light1(vec3(20, 20, 20), vec3(0.1, 0.0, 0.1), vec3(0.0, 0.3, 0.5), vec3(0.0, 0.0, 0.5));
-	Light light2(vec3(5, 30, 5), vec3(0.0, 0.2, 0.1), vec3(0.1, 0.2, 0.1), vec3(0.1, 0.2, 0.1));
-	Light light3(vec3(-25, -15, 0), vec3(0.1, 0.2, 0.0), vec3(0.3, 0.0, 0.3), vec3(0.0, 0.2, 0.1));
-	Light light4(vec3(50, 35, 5), vec3(0.1, 0.2, 0.0), vec3(0.3, 0.0, 0.3), vec3(0.0, 0.2, 0.1));
-	Light light5(vec3(-50, 0, 20), vec3(1, 1, 1), vec3(1, 1, 1), vec3(0.0, 0.2, 0.1));
+	Light light1(vec3(10, 10, 0), vec3(0.2, 0.0, 0.1), vec3(0.0, 0.2, 0), vec3(1, 0.0, 0));
+	Light light2(vec3(0, 10, 10), vec3(0.4, 0.2, 0), vec3(0, 0, 0.7), vec3(0, 0.3, 0.5));
+	Light light3(vec3(-10, 15, -5), vec3(0, 0.3, 0.4), vec3(0.1, 0.0, 0), vec3(0.0, 0.7, 0.7));
 
 	lightSystem.addLight(light1);
 	lightSystem.addLight(light2);
 	lightSystem.addLight(light3);
-	lightSystem.addLight(light4);
-	lightSystem.addLight(light5);
 }
 
 void cameraControl() {
@@ -243,7 +239,7 @@ void GameLoop() {
 			render(paths[i], positions[i], textures[i]);
 		glfwSwapBuffers(window);
 		glfwPollEvents();
-
+		
 	}
 	while (!closeWindow());
 		
@@ -274,6 +270,7 @@ void main()
 	paths.push_back("viking_room.obj");
 	positions.push_back(vec3(2, 0, -10));
 	textures.push_back("viking_room.dds");
+	
 	/////////////
 	
 	GameLoop();
