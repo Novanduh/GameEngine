@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\VertexShader.vertexshader||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\FragmentShader.fragmentshader||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\FragmentShader.fragmentshader||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\LightingSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\FragmentShader.fragmentshader||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|solutionrelative:engine\\FragmentShader.fragmentshader||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9AA9856-8A0A-4A36-8207-E4072FC9D8A7}|engine\\engine.vcxproj|D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -54,15 +54,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "LightingSystem.cpp",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.cpp",
               "RelativeDocumentMoniker": "engine\\LightingSystem.cpp",
               "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\LightingSystem.cpp",
               "RelativeToolTip": "engine\\LightingSystem.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAARAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-06T02:35:52.007Z"
+              "WhenOpened": "2024-03-06T02:35:52.007Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -96,14 +97,14 @@
               "RelativeDocumentMoniker": "engine\\renderer.cpp",
               "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\renderer.cpp",
               "RelativeToolTip": "engine\\renderer.cpp",
-              "ViewState": "AQIAAGEAAAAAAAAAAAAqwHQAAABHAAAA",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAQwJUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-02-26T23:56:58.348Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FragmentShader.fragmentshader",
               "DocumentMoniker": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\FragmentShader.fragmentshader",
               "RelativeDocumentMoniker": "engine\\FragmentShader.fragmentshader",
@@ -127,7 +128,7 @@
               "RelativeDocumentMoniker": "engine\\VertexShader.vertexshader",
               "ToolTip": "D:\\GameEngineRepo\\GameEngine\\OpenGl_Engine\\engine\\engine\\VertexShader.vertexshader",
               "RelativeToolTip": "engine\\VertexShader.vertexshader",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-03-08T02:42:49.097Z",
               "EditorCaption": ""

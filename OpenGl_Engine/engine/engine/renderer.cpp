@@ -115,10 +115,16 @@ void initRenderer() {
 	ShineID = glGetUniformLocation(programID, "shininess");
 
 	Light light1(vec3(20, 20, 20), vec3(0.1, 0.0, 0.1), vec3(0.0, 0.3, 0.5), vec3(0.0, 0.0, 0.5));
-	Light light2(vec3(5, 10, 5), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7), vec3(0.5, 0.2, 0.7));
+	Light light2(vec3(5, 30, 5), vec3(0.0, 0.2, 0.1), vec3(0.1, 0.2, 0.1), vec3(0.1, 0.2, 0.1));
+	Light light3(vec3(-25, -15, 0), vec3(0.1, 0.2, 0.0), vec3(0.3, 0.0, 0.3), vec3(0.0, 0.2, 0.1));
+	Light light4(vec3(50, 35, 5), vec3(0.1, 0.2, 0.0), vec3(0.3, 0.0, 0.3), vec3(0.0, 0.2, 0.1));
+	Light light5(vec3(-50, 0, 20), vec3(1, 1, 1), vec3(1, 1, 1), vec3(0.0, 0.2, 0.1));
 
 	lightSystem.addLight(light1);
 	lightSystem.addLight(light2);
+	lightSystem.addLight(light3);
+	lightSystem.addLight(light4);
+	lightSystem.addLight(light5);
 }
 
 void cameraControl() {
@@ -136,10 +142,17 @@ void cameraControl() {
 
 void lightControl() {
 	lightSystem.calcLight();
-	glUniform3fv(AmbientID, 1, &lightSystem.getAmbientProduct()[0][0]);
-	glUniform3fv(DiffuseID, 1, &lightSystem.getDiffuseProduct()[0][0]);
-	glUniform3fv(SpecularID, 1, &lightSystem.getSpecularProduct()[0][0]);
-	glUniform3fv(LightID, 1, &lightSystem.lights[0].getLightPosition()[0]);
+	std::vector<glm::vec3> lightPositions;
+	for (int i = 0; i < 3; i++) {
+		lightPositions.push_back(lightSystem.lights[i].getLightPosition());
+	}
+
+
+
+	glUniform3fv(AmbientID, 3, &lightSystem.getAmbientProduct()[0][0]);
+	glUniform3fv(DiffuseID, 3, &lightSystem.getDiffuseProduct()[0][0]);
+	glUniform3fv(SpecularID, 3, &lightSystem.getSpecularProduct()[0][0]);
+	glUniform3fv(LightID, 3, &lightPositions[0][0]);
 	glUniform1f(ShineID, 50.0f);
 }
 
