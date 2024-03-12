@@ -34,7 +34,9 @@ float initialFoV = 45.0f;
 float speed = 3.0f; // 3 units / second
 float mouseSpeed = 0.0005f;
 
-
+vec3 getPlayerPos() {
+	return position;
+}
 
 void computeMatricesFromInputs(){
 

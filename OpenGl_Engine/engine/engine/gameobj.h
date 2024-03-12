@@ -12,6 +12,7 @@ public:
 	float y;
 	float z;
 
+	GameObj();
 	GameObj(string texturePath, string objPath, float x, float y, float z);
 };
 

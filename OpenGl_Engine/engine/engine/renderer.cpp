@@ -24,6 +24,12 @@ using namespace glm;
 #include "LightingSystem.hpp"
 #include "Light.hpp"
 
+#include "RescManager.hpp"
+
+using namespace resc;
+
+RescManager* rescManager;
+
 GLuint VertexArrayID;
 GLuint vertexbuffer;
 GLuint uvbuffer;
@@ -235,11 +241,15 @@ void render(const char* path, glm::vec3 position, const char* texture) {
 void GameLoop() {
 	do {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		for (int i = 0; i < paths.size(); i++)
-			render(paths[i], positions[i], textures[i]);
+		vec3 pos = getPlayerPos();
+		vector<GameObj> actives = rescManager->Update(pos.x, pos.y, pos.z);
+		for (int i = 0; i < actives.size(); i++) {
+			render(actives[i].ObjPath.c_str(), vec3(actives[i].x, actives[i].y, actives[i].z), actives[i].TexturePath.c_str());
+		}
+		/*for (int i = 0; i < paths.size(); i++)
+			render(paths[i], positions[i], textures[i]);*/
 		glfwSwapBuffers(window);
 		glfwPollEvents();
-		
 	}
 	while (!closeWindow());
 		
@@ -254,14 +264,37 @@ void cleanUp() {
 	glDeleteVertexArrays(1, &VertexArrayID);
 
 	glfwTerminate();
+	delete rescManager;
 }
 
-void main()
-{ 
+int main()
+{
 	initRenderer();
 
+	rescManager = new RescManager();
+
+	GameObj beds[4] = { GameObj("CustomUVChecker_byValle_2K.dds", "bed.obj", 2, 0, -2),
+		GameObj("CustomUVChecker_byValle_2K.dds", "bed.obj", 13, 0, 14),
+		GameObj("CustomUVChecker_byValle_2K.dds", "bed.obj", 2, 3, -10),
+		GameObj("CustomUVChecker_byValle_2K.dds", "bed.obj", 13, 0, 18)};
+	rescManager->AddPersistent(beds, sizeof(beds) / sizeof(GameObj));
+
+	ProxObj viks[2] = {
+		ProxObj(GameObj("viking_room.dds", "viking_room.obj", 2, 0, -10), 15),
+		ProxObj(GameObj("viking_room.dds", "viking_room.obj", 13, -2, 18), 12)
+	};
+	rescManager->AddObj(viks, sizeof(viks) / sizeof(ProxObj));
+
+	GameObj cubes[5] = { GameObj("uvmap.dds", "cube.obj", 13, 0, 14),
+		GameObj("uvmap.dds", "cube.obj", 10, 0, 14),
+		GameObj("uvmap.dds", "cube.obj", 16, 0, 14),
+		GameObj("uvmap.dds", "cube.obj", 13, 3, 14),
+		GameObj("uvmap.dds", "cube.obj", 13, -3, 14) };
+	ProxBlock* b = new ProxBlock(cubes, 5, 10);
+	rescManager->AddBlock(b, 1);
+
 	//test scene
-	paths.push_back("bed.obj");
+	/*paths.push_back("bed.obj");
 	positions.push_back(vec3(2, 0, -2));
 	textures.push_back("CustomUVChecker_byValle_2K.dds");
 	paths.push_back("cube.obj");
@@ -269,11 +302,11 @@ void main()
 	textures.push_back("uvmap.dds");
 	paths.push_back("viking_room.obj");
 	positions.push_back(vec3(2, 0, -10));
-	textures.push_back("viking_room.dds");
+	textures.push_back("viking_room.dds");*/
 	
 	/////////////
 	
 	GameLoop();
-
 	cleanUp();
+	return 0;
 }

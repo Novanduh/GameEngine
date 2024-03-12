@@ -1,5 +1,5 @@
 //create header file
-#include "RescManager.h"
+#include "RescManager.hpp"
 #include "gameobj.h"
 #include "gameobj.cpp"
 #include <string>
@@ -8,229 +8,207 @@
 
 using namespace std;
 
-float getDist(float x1, float x2, float y1, float y2, float z1, float z2) {
-	float xdif, ydif, zdif;
-	xdif = x1 - x2;
-	ydif = y1 - y2;
-	zdif = z1 - z2;
-	return sqrt(pow(xdif, 2) + pow(ydif, 2) + pow(zdif, 2));
-}
-
-ProxObj::ProxObj(GameObj g)
-	:go(new GameObj(g.TexturePath, g.ObjPath, g.x, g.y, g.z)),
-	proxTrigger(0)
-{
-
-}
-
-ProxObj::ProxObj(GameObj g, float trigger)
-	:go(new GameObj(g.TexturePath, g.ObjPath, g.x, g.y, g.z)),
-	proxTrigger(trigger)
-{
-
-}
-
-ProxObj::~ProxObj(void) {
-	delete go;
-}
-
-ProxNode::ProxNode(ProxObj* content, ProxNode* previous, ProxNode* next)
-	:prev(previous),
-	content(*content),
-	next(next)
-{
-
-}
-
-ProxNode::~ProxNode(void) {
-	ProxNode* curr = this;
-	ProxNode* next = curr->next;
-	while (curr) {
-		delete curr;
-		curr = next;
-		next = next->next;
-	}
-}
-
-ProxBlock::ProxBlock(GameObj* gos, float proximity)
-	:proxList(new ProxNode(new ProxObj(gos[0]), nullptr, nullptr))
-{
-	ProxNode* curr = proxList;
-	count = sizeof(gos);
-
-	for (int i = 1; i < sizeof(gos); i++) {
-		ProxNode* n = new ProxNode(new ProxObj(gos[i]), curr, nullptr);
-		curr->next = n;
-		curr = n;
+namespace resc {
+	float getDist(float x1, float x2, float y1, float y2, float z1, float z2) {
+		float xdif, ydif, zdif;
+		xdif = x1 - x2;
+		ydif = y1 - y2;
+		zdif = z1 - z2;
+		return sqrt(pow(xdif, 2) + pow(ydif, 2) + pow(zdif, 2));
 	}
 
-	curr->next = proxList;
-	proxList->prev = curr;
-	proxTrigger = proximity;
-}
+	ProxObj::ProxObj(GameObj g)
+		:go(new GameObj(g.TexturePath, g.ObjPath, g.x, g.y, g.z)),
+		proxTrigger(0)
+	{
 
-ProxBlock::~ProxBlock(void) {
-	delete proxList;
-}
-
-void ProxBlock::Calc(void) {
-	float maxX, minX, maxY, minY, maxZ, minZ;
-	ProxNode* curr = proxList;
-	float currX = curr->content.go->x;
-	float currY = curr->content.go->y;
-	float currZ = curr->content.go->z;
-
-	maxX = currX;
-	minX = currX;
-	maxY = currY;
-	minY = currY;
-	maxZ = currZ;
-	minZ = currZ;
-
-	curr = curr->next;
-
-	while (curr != proxList) {
-		maxX = max(currX, maxX);
-		minX = min(currX, minX);
-		maxY = max(currY, maxY);
-		minY = min(currY, minY);
-		maxZ = max(currZ, maxZ);
-		minZ = min(currZ, minZ);
-
-		curr = curr->next;
 	}
 
-	midX = maxX - (maxX - minX) / 2;
-	midY = maxY - (maxY - minY) / 2;
-	midZ = maxZ - (maxZ - minZ) / 2;
+	ProxObj::ProxObj(GameObj g, float trigger)
+		:go(new GameObj(g.TexturePath, g.ObjPath, g.x, g.y, g.z)),
+		proxTrigger(trigger)
+	{
 
-	radius = sqrt(pow(maxX - midX, 2) + pow(maxY - midY, 2) + pow(maxZ - midZ, 2));
-}
-
-ProxBlockNode::ProxBlockNode(ProxBlock* content, ProxBlockNode* prev, ProxBlockNode* next)
-	:prev(prev),
-	content(content),
-	next(next)
-{
-	
-}
-
-RescManager::RescManager(void)
-	:proxList(NULL),
-	proxBlockList(NULL),
-	prevObjs(NULL),
-	prevx(0),
-	prevy(0),
-	prevz(0),
-	maxTrigDist(0),
-	prevCount(0)
-{
-	
-}
-
-RescManager::~RescManager(void) {
-	delete instance;
-	delete proxList;
-	free(prevObjs);
-	free(prevBlocks);
-}
-
-RescManager* RescManager::getInstance(void) {
-	if (instance == NULL) {
-		instance = new RescManager();
 	}
-	return instance;
-}
 
-void RescManager::Update(float plx, float ply, float plz, GameObj* objs) {
-	GameObj* objp;
-	ProxNode* blockPtr, *t = proxList;
-	ProxBlockNode* tb = proxBlockList;
-	int proxObjCount, proxBlockCount, gocount = 0;
-	float pldelta = sqrt(pow(plx - prevx, 2) + pow(ply - prevy, 2) + pow(plz - prevz, 2));
+	ProxObj::~ProxObj(void) {
+		//delete go;
+	}
 
+	ProxBlock::ProxBlock() 
+		:midX(),
+		midY(),
+		midZ(),
+		radius(),
+		proxTrigger(),
+		proxList(),
+		count()
+	{
 
-	if (prevObjs != NULL && prevBlocks != NULL && pldelta < maxTrigDist) {
-		objs = (GameObj*)malloc(sizeof(GameObj) * prevCount);
-		ProxObj* o = prevObjs;
-		ProxBlock* b = prevBlocks;
-		float newmax;
-		int i = 0;
+	}
 
-		do {
-			float dist = getDist(plx, o->go->x, ply, o->go->y, plz, o->go->z);
+	ProxBlock::ProxBlock(GameObj gos[], int size, float proximity)
+		:proxList()
+	{
+		for (int i = 0; i < size; i++) {
+			proxList.push_back(gos[i]);
+		}
+		count = size;
+		proxTrigger = proximity;
+		Calc();
+	}
+
+	ProxBlock::~ProxBlock(void) {
+		
+	}
+
+	void ProxBlock::Calc(void) {
+		float maxX, minX, maxY, minY, maxZ, minZ;
+
+		maxX = minX = proxList[0].x;
+		maxY = minY = proxList[0].y;
+		maxZ = minZ = proxList[0].z;
+
+		for (int i = 1; i < proxList.size(); i++) {
+			maxX = max(proxList[i].x, maxX);
+			minX = min(proxList[i].x, minX);
+			maxY = max(proxList[i].y, maxY);
+			minY = min(proxList[i].y, minY);
+			maxZ = max(proxList[i].z, maxZ);
+			minZ = min(proxList[i].z, minZ);
+		}
+
+		midX = maxX - (maxX - minX) / 2;
+		midY = maxY - (maxY - minY) / 2;
+		midZ = maxZ - (maxZ - minZ) / 2;
+
+		radius = getDist(maxX, midX, maxY, midY, maxZ, midZ);
+	}
+
+	RescManager::RescManager(void)
+		:proxList(),
+		proxBlockList(),
+		prevBlocks(),
+		prevObjs(),
+		pers(),
+		prevx(0),
+		prevy(0),
+		prevz(0),
+		maxTrigDist(0),
+		prevCount(0),
+		persCount(0),
+		totgos(0)
+	{
+
+	}
+
+	RescManager::~RescManager(void) {
+		delete[] pers;
+	}
+
+	vector<GameObj> RescManager::Update(float plx, float ply, float plz) {
+		vector<GameObj> tempObjs;
+		float pldelta = getDist(plx, prevx, ply, prevy, plz, prevz);
+
+		for (int i = 0; i < persCount; i++) {
+			tempObjs.push_back(pers[i]);
+		}
+
+		if ((!prevObjs.empty() || !prevBlocks.empty()) && pldelta < maxTrigDist) {
+			float newmax;
+
+			for (int i = 0; i < prevObjs.size(); i++) {
+			float dist = getDist(plx, prevObjs[i].go->x, ply, prevObjs[i].go->y, plz, prevObjs[i].go->z);
+				/*if (tempObjs.size() == persCount || prevObjs[i].proxTrigger - dist < newmax) {
+					newmax = prevObjs[i].proxTrigger - dist;
+				}*/
+				tempObjs.push_back(*prevObjs[i].go);
+			}
+
+			for (int i = 0; i < prevBlocks.size(); i++) {
+				float dist = getDist(plx, prevBlocks[i].midX, ply, prevBlocks[i].midY, plz, prevBlocks[i].midZ);
+				/*if (tempObjs.size() == persCount || prevBlocks[i].proxTrigger + prevBlocks[i].radius - dist < newmax) {
+					newmax = prevBlocks[i].proxTrigger + prevBlocks[i].radius - dist;
+					
+				}*/
+				for (int j = 0; j < prevBlocks[i].proxList.size(); j++) {
+					tempObjs.push_back(prevBlocks[i].proxList[j]);
+				}
+			}
+
+			maxTrigDist -= pldelta;
+		} else {
+			prevObjs.clear();
+			prevBlocks.clear();
 			
-			if (i == 0 || o->proxTrigger - dist < newmax) {
-				newmax = o->proxTrigger - dist;
+			for (int i = 0; i < proxList.size(); i++) {
+				float dist = getDist(plx, proxList[i].go->x, ply, proxList[i].go->y, plz, proxList[i].go->z);
+				if (dist <= proxList[i].proxTrigger) {
+					if (tempObjs.size() == persCount || proxList[i].proxTrigger - dist < maxTrigDist) {
+						maxTrigDist = proxList[i].proxTrigger - dist;
+					}
+
+					tempObjs.push_back(*proxList[i].go);
+					prevObjs.push_back(proxList[i]);
+				}
+				else {
+					if (dist - proxList[i].proxTrigger < maxTrigDist) {
+						maxTrigDist = dist - proxList[i].proxTrigger;
+					}
+				}
 			}
 
-			objs[i++] = *o->go;
-			o += 1;
-		} while (o != NULL);
-
-		do {
-			float dist = getDist(plx, b->midX, ply, b->midY, plz, b->midZ);
-
-			if (b->proxTrigger + b->radius - dist < newmax) {
-				newmax = b->proxTrigger + b->radius - dist;
+			for (int j = 0; j < proxBlockList.size(); j++) {
+				float dist = getDist(plx, proxBlockList[j].midX, ply, proxBlockList[j].midY, plz, proxBlockList[j].midZ);
+				if (dist <= proxBlockList[j].proxTrigger + proxBlockList[j].radius) {
+					if (tempObjs.size() == persCount || proxBlockList[j].proxTrigger + proxBlockList[j].radius - dist < maxTrigDist) {
+						maxTrigDist = proxBlockList[j].proxTrigger + proxBlockList[j].radius - dist;
+					}
+					for (int k = 0; k < proxBlockList[j].count; k++) {
+						tempObjs.push_back(proxBlockList[j].proxList[k]);
+					}
+					prevBlocks.push_back(proxBlockList[j]);
+				}
+				else {
+					if (dist - proxBlockList[j].proxTrigger - proxBlockList[j].radius < maxTrigDist) {
+						maxTrigDist = dist - proxBlockList[j].proxTrigger - proxBlockList[j].radius;
+					}
+				}
 			}
+		}
 
-			ProxNode* bt = b->proxList;
-
-			do {
-				objs[i++] = *bt->content.go;
-				bt = bt->next;
-			} while (bt != b->proxList);
-			b += 1;
-		} while (b != NULL);
+		prevx = plx;
+		prevy = ply;
+		prevz = plz;
+		prevCount = tempObjs.size();
+		return tempObjs;
 	}
 
-
-	free(prevObjs);
-	free(prevBlocks);
-	objs = NULL;
-
-	proxObjCount = 0;
-	if (t) {
-		do {
-			float dist = getDist(plx, t->content.go->x, ply, t->content.go->y, plz, t->content.go->z);
-			if (dist <= t->content.proxTrigger) {
-				if (gocount == 0 || t->content.proxTrigger - dist < maxTrigDist) {
-					maxTrigDist = t->content.proxTrigger - dist;
-				}
-
-				realloc(objs, sizeof(GameObj) * ++gocount);
-				objs[gocount - 1] = *t->content.go;
-				realloc(prevObjs, sizeof(ProxObj) * ++proxObjCount);
-				prevObjs[proxObjCount - 1] = t->content;
-			}
-			t = t->next;
-		} while (t != proxList);
-	}
-	
-	proxBlockCount = 0;
-	if (tb) {
-		do {
-			float dist = getDist(plx, tb->content->midX, ply, tb->content->midY, plz, tb->content->midZ);
-			if (dist <= tb->content->proxTrigger + tb->content->radius) {
-				if (gocount == 0 || tb->content->proxTrigger + tb->content->radius - dist < maxTrigDist) {
-					maxTrigDist = tb->content->proxTrigger + tb->content->radius - dist;
-				}
-				realloc(objs, sizeof(GameObj) * (gocount + tb->content->count));
-				blockPtr = tb->content->proxList;
-				for (int i = 0; i < tb->content->count; i++) {
-					objs[gocount++] = *blockPtr->content.go;
-					blockPtr = blockPtr->next;
-				}
-				realloc(prevBlocks, sizeof(ProxBlock) * ++proxBlockCount);
-				prevBlocks[proxBlockCount - 1] = *tb->content;
-			}
-			tb = tb->next;
-		} while (tb != proxBlockList);
+	void RescManager::AddObj(ProxObj objs[], int size) {
+		for (int i = 0; i < size; i++) {
+			proxList.push_back(objs[i]);
+		}
+		totgos += size;
 	}
 
-	prevx = plx;
-	prevy = ply;
-	prevz = plz;
-	prevCount = gocount;
+	void RescManager::AddBlock(ProxBlock blocks[], int size) {
+		for (int i = 0; i < size; i++) {
+			proxBlockList.push_back(blocks[i]);
+		}
+		totgos += size;
+	}
+
+	void RescManager::AddPersistent(GameObj obj[], int size) {
+		GameObj* gos = new GameObj[persCount + size];
+		for (int i = 0; i < persCount; i++) {
+			gos[i] = pers[i];
+		}
+		for (int i = 0; i < size; i++) {
+			gos[persCount + i] = obj[i];
+		}
+		delete[] pers;
+		pers = gos;
+		persCount += size;
+		totgos += size;
+	}
 }
